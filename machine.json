@@ -1,0 +1,128 @@
+{
+    "api_version": "1.0",
+    "deepmd_version": "2",
+    "train": [
+        {
+            "command": "dp",
+            "group_size": 1,
+            "machine": {
+                "batch_type": "SlurmJobArray",
+                "clean_asynchronously": true,
+                "context_type": "SSHContext",
+                "local_root": "./",
+                "remote_profile": {
+                    "hostname": "amarel.rutgers.edu",
+                    "port": 22,
+                    "username": "jz748"
+                },
+                "remote_root": "/scratch/jz748/dpgen_workdir"
+            },
+            "resources": {
+                "cpu_per_node": 1,
+                "custom_flags": [
+                    "#SBATCH --mem=128G",
+                    "#SBATCH --time=2:00:00",
+                    "#SBATCH --requeue",
+                    "#SBATCH --mail-type=ALL",
+                    "#SBATCH --mail-user=jz748@rutgers.edu",
+                    "#SBATCH --constraint=volta|pascal|ampere|titan"
+                ],
+                "envs": {
+                    "OMP_NUM_THREADS": 1,
+                    "TF_INTER_OP_PARALLELISM_THREADS": 1,
+                    "TF_INTRA_OP_PARALLELISM_THREADS": 1
+                },
+                "gpu_per_node": 1,
+                "group_size": 0,
+                "number_node": 1,
+                "queue_name": "gpu",
+                "module_list": [
+                    "deepmd-kit"
+                ]
+            }
+        }
+    ],
+    "model_devi": [
+        {
+            "command": "mpirun -n $SLURM_NPROCS sander.MPI",
+            "group_size": 1,
+            "machine": {
+                "batch_type": "SlurmJobArray",
+                "clean_asynchronously": true,
+                "context_type": "SSHContext",
+                "local_root": "./",
+                "remote_profile": {
+                    "hostname": "amarel.rutgers.edu",
+                    "port": 22,
+                    "username": "jz748"
+                },
+                "remote_root": "/scratch/jz748/dpgen_workdir"
+            },
+            "resources": {
+                "cpu_per_node": 1,
+                "custom_flags": [
+                    "#SBATCH --mem=128G",
+                    "#SBATCH --time=2:00:00",
+                    "#SBATCH --requeue",
+                    "#SBATCH --mail-type=ALL",
+                    "#SBATCH --mail-user=jz748@rutgers.edu",
+                    "#SBATCH --constraint=hdr&(volta|pascal|ampere|titan)"
+                ],
+                "envs": {
+                    "OMP_NUM_THREADS": 1,
+                    "TF_INTER_OP_PARALLELISM_THREADS": 1,
+                    "TF_INTRA_OP_PARALLELISM_THREADS": 1
+                },
+                "gpu_per_node": 1,
+                "group_size": 0,
+                "number_node": 1,
+                "queue_name": "gpu",
+                "source_list": [
+                    "deactivate"
+                ],
+                "module_list": [
+                    "amber"
+                ]
+            }
+        }
+    ],
+    "fp": [
+        {
+            "command": "mpirun -n $SLURM_NPROCS sander.MPI",
+            "group_size": 1,
+            "machine": {
+                "batch_type": "SlurmJobArray",
+                "clean_asynchronously": true,
+                "context_type": "SSHContext",
+                "local_root": "./",
+                "remote_profile": {
+                    "hostname": "amarel.rutgers.edu",
+                    "port": 22,
+                    "username": "jz748"
+                },
+                "remote_root": "/scratch/jz748/dpgen_workdir"
+            },
+            "resources": {
+                "cpu_per_node": 4,
+                "custom_flags": [
+                    "#SBATCH --mem=128G",
+                    "#SBATCH --time=2:00:00",
+                    "#SBATCH --requeue",
+                    "#SBATCH --mail-type=ALL",
+                    "#SBATCH --mail-user=jz748@rutgers.edu"
+                ],
+                "gpu_per_node": 0,
+                "group_size": 0,
+                "number_node": 1,
+                "queue_name": "main",
+                "module_list": [
+                    "amber",
+                    "dpamber"
+                ],
+                "kwargs": {
+                    "slurm_job_size": 50
+                }
+            }
+        }
+    ]
+}
