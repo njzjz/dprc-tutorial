@@ -36,13 +36,13 @@ Here assume you have had `ETP_ETH.parm7` and `init_-1.50.rst7`.
 Then you need to use `sander` to run several fast, semi-empirical QM/MM simulations in different random seeds, and print both energy and forces. The mdin file is provided in [`mdin/low_level_md.mdin`](mdin/low_level_md.mdin).
 
 ```sh
-sander -O -p ETP_ETH.parm7 -c init.rst7 -i low_level_md.mdin -o rc.mdout -r init_-1.50.rst7 -x mndod.nc -inf rc.mdinfo -ref init.rst7 -frc mndod.mdfrc -mden mndod.mden
+sander -O -p ETP_ETH.parm7 -c init_-1.50.rst7 -i low_level_md.mdin -o rc.mdout -r init_-1.50.rst7 -x mndod.nc -inf rc.mdinfo -ref init_-1.50.rst7 -frc mndod.mdfrc -e mndod.mden
 ```
 
 Then, you need to use `sander` to run *ab initio* QM/MM calculation from the given trajectory `mndod.nc` with `imin = 6` (note: `imin=6` may not be supported in old AMBER versions). An example mdin file is provided in [`mdin/high_level_relabel.mdin`](mdin/high_level_relabel.mdin), but you need to modify it to match your DFT software.
 
 ```sh
-sander -O -p ETP_ETH.parm7 -c init_-1.50.rst7 -i high_level_relabel.mdin -o high_level.mdout -r high_level.rst7 -x high_level.nc -y mndod.nc -frc high_level.mdfrc -inf high_level.mdinfo -mden high_level.mden
+sander -O -p ETP_ETH.parm7 -c init_-1.50.rst7 -i high_level_relabel.mdin -o high_level.mdout -r high_level.rst7 -x high_level.nc -y mndod.nc -frc high_level.mdfrc -inf high_level.mdinfo -e high_level.mden
 ```
 
 Now you have both high-level and low-level data. Then use [`dpamber corr`](https://github.com/njzjz/dpamber) to generate the initial training data:
