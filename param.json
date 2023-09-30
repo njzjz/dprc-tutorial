@@ -131,7 +131,6 @@
                                 5
                             ]
                         ],
-                        "set_davg_zero": true,
                         "precision": "float32"
                     },
                     {
