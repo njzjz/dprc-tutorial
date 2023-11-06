@@ -12,7 +12,7 @@ Assume you have a local machine and a remote machine separately, you need to ins
 
 On the local machine:
 
-- [DP-GEN](https://github.com/deepmodeling/dpgen)
+- [DP-GEN](https://github.com/deepmodeling/dpgen) v0.12.0 or above
 - [dpamber](https://github.com/njzjz/dpamber)
 
 On the remote machine:

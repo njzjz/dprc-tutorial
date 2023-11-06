@@ -286,7 +286,7 @@
     },
     "detailed_report_make_fp": true,
     "training_reuse_iter": 1,
-    "training_reuse_old_ratio": 0.2647,
+    "training_reuse_old_ratio": "auto",
     "low_level": "MNDOD",
     "high_level": "PBE0",
     "cutoff": 6.0,
