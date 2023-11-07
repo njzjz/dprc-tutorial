@@ -17,7 +17,7 @@ On the local machine:
 
 On the remote machine:
 
-- [DeePMD-kit](https://github.com/deepmodeling/deepmd-kit) Python interface
+- [DeePMD-kit](https://github.com/deepmodeling/deepmd-kit) v2.2.6 or above, Python interface
 - [AmberDPRc](https://gitlab.com/RutgersLBSR/AmberDPRc)
 - [dpamber](https://github.com/njzjz/dpamber)
 - An *ab initio* and DFT software package supported by AMBER QM/MM. Since some packages are not free, you can choose what you have. See [AMBER manual](https://ambermd.org/doc12/Amber20.pdf) Section 10.2 for details.
