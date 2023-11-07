@@ -67,7 +67,7 @@
                 "type": "hybrid",
                 "list": [
                     {
-                        "type": "se_a",
+                        "type": "se_a_ebd_v2",
                         "sel": [
                             3,
                             7,
@@ -134,15 +134,8 @@
                         "precision": "float32"
                     },
                     {
-                        "type": "se_a",
-                        "sel": [
-                            3,
-                            7,
-                            5,
-                            1,
-                            88,
-                            44
-                        ],
+                        "type": "se_atten_v2",
+                        "sel": 148,
                         "rcut_smth": 1.0,
                         "rcut": 6.0,
                         "neuron": [
@@ -150,6 +143,8 @@
                             50,
                             100
                         ],
+                        "attn": 128,
+                        "attn_layer": 0,                  
                         "resnet_dt": false,
                         "axis_neuron": 12,
                         "exclude_types": [
@@ -254,6 +249,7 @@
             "profiling_file": "timeline.json"
         }
     },
+    "dp_compress": true,
     "model_devi_dt": 0.001,
     "model_devi_skip": 0,
     "model_devi_f_trust_lo": 0.08,
