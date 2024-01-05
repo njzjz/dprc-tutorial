@@ -18,7 +18,7 @@ On the local machine:
 On the remote machine:
 
 - [DeePMD-kit](https://github.com/deepmodeling/deepmd-kit) the development version after [fe488a](https://github.com/deepmodeling/deepmd-kit/commit/fe488a4560e86176414e1b9b04904902ac6ed488) (Dec 6, 2023), Python interface
-- [AmberDPRc](https://gitlab.com/RutgersLBSR/AmberDPRc)
+- [AmberTools](https://ambermd.org/) 2024 or later, with DeePMD-kit and xtb interfaces enabled
 - [dpamber](https://github.com/njzjz/dpamber)
 - An *ab initio* and DFT software package supported by AMBER QM/MM. Since some packages are not free, you can choose what you have. See [AMBER manual](https://ambermd.org/doc12/Amber20.pdf) Section 10.2 for details.
 
@@ -36,19 +36,19 @@ Here assume you have had `ETP_ETH.parm7` and `init_-1.50.rst7`.
 Then you need to use `sander` to run several fast, semi-empirical QM/MM simulations in different random seeds, and print both energy and forces. The mdin file is provided in [`mdin/low_level_md.mdin`](mdin/low_level_md.mdin).
 
 ```sh
-sander -O -p ETP_ETH.parm7 -c init_-1.50.rst7 -i low_level_md.mdin -o rc.mdout -r rc.rst7 -x mndod.nc -inf rc.mdinfo -ref init_-1.50.rst7 -frc mndod.mdfrc -e mndod.mden
+sander -O -p ETP_ETH.parm7 -c init_-1.50.rst7 -i low_level_md.mdin -o rc.mdout -r rc.rst7 -x xtb.nc -inf rc.mdinfo -ref init_-1.50.rst7 -frc xtb.mdfrc -e xtb.mden
 ```
 
-Then, you need to use `sander` to run *ab initio* QM/MM calculation from the given trajectory `mndod.nc` with `imin = 6` (note: `imin=6` may not be supported in old AMBER versions). An example mdin file is provided in [`mdin/high_level.mdin`](mdin/high_level.mdin), but you need to modify it to match your DFT software.
+Then, you need to use `sander` to run *ab initio* QM/MM calculation from the given trajectory `xtb.nc` with `imin = 6` (note: `imin=6` may not be supported in old AMBER versions). An example mdin file is provided in [`mdin/high_level.mdin`](mdin/high_level.mdin), but you need to modify it to match your DFT software.
 
 ```sh
-sander -O -p ETP_ETH.parm7 -c init_-1.50.rst7 -i high_level_relabel.mdin -o high_level.mdout -r high_level.rst7 -x high_level.nc -y mndod.nc -frc high_level.mdfrc -inf high_level.mdinfo -e high_level.mden
+sander -O -p ETP_ETH.parm7 -c init_-1.50.rst7 -i high_level_relabel.mdin -o high_level.mdout -r high_level.rst7 -x high_level.nc -y xtb.nc -frc high_level.mdfrc -inf high_level.mdinfo -e high_level.mden
 ```
 
 Now you have both high-level and low-level data. Then use [`dpamber corr`](https://github.com/njzjz/dpamber) to generate the initial training data:
 
 ```sh
-dpamber corr --cutoff 6. --qm_region ":1-2" --parm7_file ETP_ETH.param7 --nc mndod.nc --hl pbe0 --ll mndod --out init_data.hdf5
+dpamber corr --cutoff 6. --qm_region ":1-2" --parm7_file ETP_ETH.param7 --nc xtb.nc --hl pbe0 --ll xtb --out init_data.hdf5
 ```
 
 For convenience, we provide an example of the initial data in [`init_data/init_data.hdf5.tar.bz2`](init_data/init_data.hdf5.tar.bz2), and you can extract it and jump to the next step.

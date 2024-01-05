@@ -283,7 +283,7 @@
     "detailed_report_make_fp": true,
     "training_reuse_iter": 1,
     "training_reuse_old_ratio": "auto",
-    "low_level": "MNDOD",
+    "low_level": "GFN2-XTB",
     "high_level": "PBE0",
     "cutoff": 6.0,
     "mass_map": [

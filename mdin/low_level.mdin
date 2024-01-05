@@ -47,7 +47,7 @@ DUMPAVE=TEMPLATE.dumpave
 /
 
 &qmmm
-    qm_theory   = '%qm_theory%'
+    qm_theory   = 'xtb'
         qmmask  = '%qm_region%'
       qmcharge  = %qm_charge%
           spin  = 1
@@ -62,3 +62,6 @@ DUMPAVE=TEMPLATE.dumpave
   dftb_maxiter  = 100
 /
 
+&xtb
+  qm_level = 'GFN2-XTB'
+/

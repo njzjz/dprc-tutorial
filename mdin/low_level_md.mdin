@@ -47,7 +47,7 @@ DUMPAVE=rc_-1.50.dumpave
 /
 
 &qmmm
-    qm_theory   = 'MNDOD'
+    qm_theory   = 'xtb'
         qmmask  = ':1-2'
       qmcharge  = -2
           spin  = 1
@@ -62,3 +62,6 @@ DUMPAVE=rc_-1.50.dumpave
   dftb_maxiter  = 100
 /
 
+&xtb
+  qm_level = 'GFN2-XTB'
+/
