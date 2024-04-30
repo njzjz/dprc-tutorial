@@ -47,17 +47,15 @@ DUMPAVE=TEMPLATE.dumpave
 /
 
 &qmmm
-    qm_theory   = 'HFDF'
-   hfdf_theory  = '%qm_theory%'
-    hfdf_basis  = '6-31G*'
+     qm_theory  = 'quick'
         qmmask  = '%qm_region%'
       qmcharge  = %qm_charge%
           spin  = 1
-        itrmax  = 50
-       qmshake  = 0
-       scfconv  = 1e-07
-     verbosity  = 0
-hfdf_mempercore = 2000
-hfdf_restricted = T
+      qmmm_int  = 5
+      qm_ewald  = 1
 /
 
+%quick
+      method    = '%qm_theory%'
+      basis     = '6-31G*'
+/
