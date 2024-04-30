@@ -10,17 +10,14 @@ Before this tutorial, assume you have some basic knowledge of AMBER. If not, fol
 
 Assume you have a local machine and a remote machine separately, you need to install the following software.
 
-On the local machine:
+| Software                                                  | Machine          | Version   | Documentation | Additional notes |
+| --------------------------------------------------------- | ---------------- | --------- | ------------- | ------------ |
+| [DP-GEN](https://github.com/deepmodeling/dpgen)           | local            | >= 0.12.0 | [DPRc](https://docs.deepmodeling.com/projects/dpgen/en/latest/run/param.html#run-jdata-model-devi-engine-amber)
+| [dpamber](https://github.com/njzjz/dpamber)               | local and remote | >= 0.3.0  | [README](https://github.com/njzjz/dpamber)
+| [DeePMD-kit](https://github.com/deepmodeling/deepmd-kit)  | remote           | >= 2.2.8  | [DPRc](https://docs.deepmodeling.com/projects/deepmd/en/latest/model/dprc.html) | Python interface; C++ interface to Ambertools
+| [AmberTools](https://ambermd.org/)                        | remote           | >= 2024   | [Manual](https://ambermd.org/doc12/Amber24.pdf)<br/>[AmberDPRc](https://gitlab.com/RutgersLBSR/AmberDPRc/) | Enable [DeePMD-kit](https://github.com/deepmodeling/deepmd-kit) and [QUICK](https://github.com/merzlab/QUICK) interface
 
-- [DP-GEN](https://github.com/deepmodeling/dpgen) v0.12.0 or above
-- [dpamber](https://github.com/njzjz/dpamber)
-
-On the remote machine:
-
-- [DeePMD-kit](https://github.com/deepmodeling/deepmd-kit) v2.2.8 or above, Python interface
-- [AmberTools](https://ambermd.org/) 2024 or later, with DeePMD-kit interface enabled; see [AmberDPRc](https://gitlab.com/RutgersLBSR/AmberDPRc) repository
-- [dpamber](https://github.com/njzjz/dpamber)
-- An *ab initio* and DFT software package supported by AMBER QM/MM. Since some packages are not free, you can choose what you have. See [AMBER manual](https://ambermd.org/doc12/Amber24.pdf) Section 10.2 for details.
+Please give the proper credits to all the software above.
 
 ## Initial data
 
