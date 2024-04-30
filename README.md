@@ -12,9 +12,9 @@ Assume you have a local machine and a remote machine separately, you need to ins
 
 | Software                                                  | Machine          | Version   | Documentation | Additional notes |
 | --------------------------------------------------------- | ---------------- | --------- | ------------- | ------------ |
-| [DP-GEN](https://github.com/deepmodeling/dpgen)           | local            | >= 0.12.0 | [DPRc](https://docs.deepmodeling.com/projects/dpgen/en/latest/run/param.html#run-jdata-model-devi-engine-amber)
+| [DP-GEN](https://github.com/deepmodeling/dpgen)           | local            | >= 0.12.0 | [DPRc](https://docs.deepmodeling.com/projects/dpgen/en/latest/run/param.html#run-jdata-model-devi-engine-amber)<br/>[Paper](https://doi.org/10.1016/j.cpc.2020.107206)
 | [dpamber](https://github.com/njzjz/dpamber)               | local and remote | >= 0.3.0  | [README](https://github.com/njzjz/dpamber)
-| [DeePMD-kit](https://github.com/deepmodeling/deepmd-kit)  | remote           | >= 2.2.8  | [DPRc](https://docs.deepmodeling.com/projects/deepmd/en/latest/model/dprc.html) | Python interface; C++ interface to Ambertools
+| [DeePMD-kit](https://github.com/deepmodeling/deepmd-kit)  | remote           | >= 2.2.8  | [DPRc](https://docs.deepmodeling.com/projects/deepmd/en/latest/model/dprc.html) | Python interface; C++ interface to Ambertools<br/>[Paper](https://doi.org/10.1063/5.0155600)
 | [AmberTools](https://ambermd.org/)                        | remote           | >= 2024   | [Manual](https://ambermd.org/doc12/Amber24.pdf)<br/>[AmberDPRc](https://gitlab.com/RutgersLBSR/AmberDPRc/) | Enable [DeePMD-kit](https://github.com/deepmodeling/deepmd-kit) and [QUICK](https://github.com/merzlab/QUICK) interface
 
 Please give the proper credits to all the software above.
