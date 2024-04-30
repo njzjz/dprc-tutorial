@@ -68,7 +68,7 @@ Here we have five directories:
 - [`rst7`](rst7): contains starting structures. 
 - [`disang`](disang): contains distance and angle constraints for umbrella sampling.
 
-These files have been prepared in advance, but you need to modify the mdin file for the high-level calculation to match your software package.
+These files have been prepared in advance.
 
 ## Running DP-GEN
 
