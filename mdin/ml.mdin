@@ -62,10 +62,9 @@ DUMPAVE=TEMPLATE.dumpave
   dftb_maxiter  = 100
 /
 
-&dprc
-  idprc=1
+&mace
+  imace=1
   mask="@qm_region@"
-  rcut = @rcut@
   interfile(1)="@GRAPH_FILE0@"
   interfile(2)="@GRAPH_FILE1@"
   interfile(3)="@GRAPH_FILE2@"

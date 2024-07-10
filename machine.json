@@ -3,7 +3,7 @@
     "deepmd_version": "2",
     "train": [
         {
-            "command": "dp",
+            "command": "mace_run_train",
             "group_size": 1,
             "machine": {
                 "batch_type": "SlurmJobArray",
@@ -28,17 +28,12 @@
                     "#SBATCH --constraint=volta|pascal|ampere|titan"
                 ],
                 "envs": {
-                    "OMP_NUM_THREADS": 1,
-                    "TF_INTER_OP_PARALLELISM_THREADS": 1,
-                    "TF_INTRA_OP_PARALLELISM_THREADS": 1
+                    "OMP_NUM_THREADS": 1
                 },
                 "gpu_per_node": 1,
                 "group_size": 0,
                 "number_node": 1,
-                "queue_name": "gpu",
-                "module_list": [
-                    "deepmd-kit"
-                ]
+                "queue_name": "gpu"
             }
         }
     ],
