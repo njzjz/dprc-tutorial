@@ -14,7 +14,7 @@ title
        ntwf = 1
 	   ntwe = 1
 ! DYNAMICS =================================
-     nstlim = 100000   ! number of time steps
+     nstlim = 0   ! number of time steps
          dt = 0.001   ! ps/step
         ntb = 1       ! 1=NVT periodic, 2=NPT periodic, 0=no box
 ! TEMPERATURE ==============================
