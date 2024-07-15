@@ -48,7 +48,6 @@
     ],
     "sys_format": "amber/rst7",
     "numb_models": 4,
-    "train_param": "input.json",
     "default_training_param": {
         "model": {
             "type_map": [
@@ -144,7 +143,7 @@
                             100
                         ],
                         "attn": 128,
-                        "attn_layer": 0,                  
+                        "attn_layer": 0,
                         "resnet_dt": false,
                         "axis_neuron": 12,
                         "exclude_types": [
@@ -250,11 +249,8 @@
         }
     },
     "dp_compress": true,
-    "model_devi_dt": 0.001,
-    "model_devi_skip": 0,
     "model_devi_f_trust_lo": 0.08,
     "model_devi_f_trust_hi": 0.25,
-    "model_devi_clean_traj": false,
     "model_devi_engine": "amber",
     "nsteps": [
         20000
