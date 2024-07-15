@@ -1,0 +1,17 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: dargs-check-param
+        name: dargs check
+        entry: dargs check
+        args: ["-f dpgen.generator.arginfo.run_jdata_arginfo"]
+        files: "param.json"
+        language: python
+        additional_dependencies: [dpgen==0.12.1, dargs>=0.4.8]
+    -   id: dargs-check-machine
+        name: dargs check
+        entry: dargs check
+        args: ["-f dpgen.generator.arginfo.run_mdata_arginfo"]
+        files: "machine.json"
+        language: python
+        additional_dependencies: [dpgen==0.12.1, dargs>=0.4.8]
