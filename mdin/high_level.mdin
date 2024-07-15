@@ -53,9 +53,11 @@ DUMPAVE=TEMPLATE.dumpave
           spin  = 1
       qmmm_int  = 5
       qm_ewald  = 1
+       qmshake  = 0
 /
 
-%quick
+&quick
       method    = '%qm_theory%'
       basis     = '6-31G*'
 /
+
