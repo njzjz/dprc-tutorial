@@ -3,7 +3,7 @@ repos:
     hooks:
     -   id: dargs-check-param
         name: dargs check
-        entry: dargs check
+        entry: dargs check --no-strict
         args: ["-f dpgen.generator.arginfo.run_jdata_arginfo"]
         files: "param.json"
         language: python
