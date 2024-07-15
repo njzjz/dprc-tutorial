@@ -12,36 +12,36 @@
                 "hostname": "amarel.rutgers.edu",
                 "port": 22,
                 "username": "jz748"
-            },
-            "resources": {
-                "cpu_per_node": 1,
-                "custom_flags": [
-                    "#SBATCH --mem=128G",
-                    "#SBATCH --time=2:00:00",
-                    "#SBATCH --requeue",
-                    "#SBATCH --mail-type=ALL",
-                    "#SBATCH --mail-user=jz748@rutgers.edu",
-                    "#SBATCH --constraint=volta|pascal|ampere|titan"
-                ],
-                "envs": {
-                    "OMP_NUM_THREADS": 1,
-                    "TF_INTER_OP_PARALLELISM_THREADS": 1,
-                    "TF_INTRA_OP_PARALLELISM_THREADS": 1,
-                    "NUM_WORKERS": 1
-                },
-                "gpu_per_node": 1,
-                "group_size": 0,
-                "number_node": 1,
-                "queue_name": "gpu",
-                "module_list": [
-                    "york/dpgen/mace"
-                ]
             }
+        },
+        "resources": {
+            "batch_type": "SlurmJobArray",
+            "cpu_per_node": 1,
+            "custom_flags": [
+                "#SBATCH --mem=128G",
+                "#SBATCH --time=2:00:00",
+                "#SBATCH --requeue",
+                "#SBATCH --mail-type=ALL",
+                "#SBATCH --mail-user=jz748@rutgers.edu",
+                "#SBATCH --constraint=volta|pascal|ampere|titan"
+            ],
+            "envs": {
+                "OMP_NUM_THREADS": 1,
+                "TF_INTER_OP_PARALLELISM_THREADS": 1,
+                "TF_INTRA_OP_PARALLELISM_THREADS": 1,
+                "NUM_WORKERS": 1
+            },
+            "gpu_per_node": 1,
+            "group_size": 0,
+            "number_node": 1,
+            "queue_name": "gpu",
+            "module_list": [
+                "york/dpgen/mace"
+            ]
         }
     },
     "model_devi": {
         "command": "mpirun -n $SLURM_NPROCS sander.MPI",
-        "group_size": 1,
         "machine": {
             "batch_type": "SlurmJobArray",
             "clean_asynchronously": true,
@@ -55,6 +55,7 @@
             "remote_root": "/scratch/jz748/dpgen_workdir"
         },
         "resources": {
+            "batch_type": "SlurmJobArray",
             "cpu_per_node": 1,
             "custom_flags": [
                 "#SBATCH --mem=128G",
@@ -80,7 +81,6 @@
     },
     "fp": {
         "command": "mpirun -n $SLURM_NPROCS sander.MPI",
-        "group_size": 1,
         "machine": {
             "batch_type": "SlurmJobArray",
             "clean_asynchronously": true,
@@ -94,6 +94,7 @@
             "remote_root": "/scratch/jz748/dpgen_workdir"
         },
         "resources": {
+            "batch_type": "SlurmJobArray",
             "cpu_per_node": 4,
             "custom_flags": [
                 "#SBATCH --mem=128G",
