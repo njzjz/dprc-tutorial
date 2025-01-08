@@ -11,7 +11,7 @@ title
        ntpr = 50
        ntwr = 1000
        ntwx = 50
-       ntwf = 0
+       ntwf = 50
 ! DYNAMICS =================================
      nstlim = 20000   ! number of time steps
          dt = 0.001   ! ps/step
